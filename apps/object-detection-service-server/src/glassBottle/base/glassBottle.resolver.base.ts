@@ -17,6 +17,8 @@ import { GlassBottle } from "./GlassBottle";
 import { GlassBottleCountArgs } from "./GlassBottleCountArgs";
 import { GlassBottleFindManyArgs } from "./GlassBottleFindManyArgs";
 import { GlassBottleFindUniqueArgs } from "./GlassBottleFindUniqueArgs";
+import { CreateGlassBottleArgs } from "./CreateGlassBottleArgs";
+import { UpdateGlassBottleArgs } from "./UpdateGlassBottleArgs";
 import { DeleteGlassBottleArgs } from "./DeleteGlassBottleArgs";
 import { GlassBottleService } from "../glassBottle.service";
 @graphql.Resolver(() => GlassBottle)
@@ -48,6 +50,35 @@ export class GlassBottleResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Mutation(() => GlassBottle)
+  async createGlassBottle(
+    @graphql.Args() args: CreateGlassBottleArgs
+  ): Promise<GlassBottle> {
+    return await this.service.createGlassBottle({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @graphql.Mutation(() => GlassBottle)
+  async updateGlassBottle(
+    @graphql.Args() args: UpdateGlassBottleArgs
+  ): Promise<GlassBottle | null> {
+    try {
+      return await this.service.updateGlassBottle({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => GlassBottle)

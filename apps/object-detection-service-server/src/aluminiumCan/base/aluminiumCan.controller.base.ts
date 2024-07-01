@@ -33,8 +33,12 @@ export class AluminiumCanControllerBase {
     return await this.service.createAluminiumCan({
       data: data,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -48,8 +52,12 @@ export class AluminiumCanControllerBase {
     return this.service.aluminiumCans({
       ...args,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -64,8 +72,12 @@ export class AluminiumCanControllerBase {
     const result = await this.service.aluminiumCan({
       where: params,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -89,8 +101,12 @@ export class AluminiumCanControllerBase {
         where: params,
         data: data,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -114,8 +130,12 @@ export class AluminiumCanControllerBase {
       return await this.service.deleteAluminiumCan({
         where: params,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
