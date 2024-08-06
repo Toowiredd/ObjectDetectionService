@@ -17,6 +17,8 @@ import { Pet1PlasticBottle } from "./Pet1PlasticBottle";
 import { Pet1PlasticBottleCountArgs } from "./Pet1PlasticBottleCountArgs";
 import { Pet1PlasticBottleFindManyArgs } from "./Pet1PlasticBottleFindManyArgs";
 import { Pet1PlasticBottleFindUniqueArgs } from "./Pet1PlasticBottleFindUniqueArgs";
+import { CreatePet1PlasticBottleArgs } from "./CreatePet1PlasticBottleArgs";
+import { UpdatePet1PlasticBottleArgs } from "./UpdatePet1PlasticBottleArgs";
 import { DeletePet1PlasticBottleArgs } from "./DeletePet1PlasticBottleArgs";
 import { Pet1PlasticBottleService } from "../pet1PlasticBottle.service";
 @graphql.Resolver(() => Pet1PlasticBottle)
@@ -48,6 +50,35 @@ export class Pet1PlasticBottleResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Mutation(() => Pet1PlasticBottle)
+  async createPet1PlasticBottle(
+    @graphql.Args() args: CreatePet1PlasticBottleArgs
+  ): Promise<Pet1PlasticBottle> {
+    return await this.service.createPet1PlasticBottle({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @graphql.Mutation(() => Pet1PlasticBottle)
+  async updatePet1PlasticBottle(
+    @graphql.Args() args: UpdatePet1PlasticBottleArgs
+  ): Promise<Pet1PlasticBottle | null> {
+    try {
+      return await this.service.updatePet1PlasticBottle({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => Pet1PlasticBottle)

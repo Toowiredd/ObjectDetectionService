@@ -17,6 +17,8 @@ import { AluminiumCan } from "./AluminiumCan";
 import { AluminiumCanCountArgs } from "./AluminiumCanCountArgs";
 import { AluminiumCanFindManyArgs } from "./AluminiumCanFindManyArgs";
 import { AluminiumCanFindUniqueArgs } from "./AluminiumCanFindUniqueArgs";
+import { CreateAluminiumCanArgs } from "./CreateAluminiumCanArgs";
+import { UpdateAluminiumCanArgs } from "./UpdateAluminiumCanArgs";
 import { DeleteAluminiumCanArgs } from "./DeleteAluminiumCanArgs";
 import { AluminiumCanService } from "../aluminiumCan.service";
 @graphql.Resolver(() => AluminiumCan)
@@ -48,6 +50,35 @@ export class AluminiumCanResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Mutation(() => AluminiumCan)
+  async createAluminiumCan(
+    @graphql.Args() args: CreateAluminiumCanArgs
+  ): Promise<AluminiumCan> {
+    return await this.service.createAluminiumCan({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @graphql.Mutation(() => AluminiumCan)
+  async updateAluminiumCan(
+    @graphql.Args() args: UpdateAluminiumCanArgs
+  ): Promise<AluminiumCan | null> {
+    try {
+      return await this.service.updateAluminiumCan({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => AluminiumCan)
