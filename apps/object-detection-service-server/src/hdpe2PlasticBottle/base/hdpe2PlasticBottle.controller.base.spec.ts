@@ -18,25 +18,41 @@ import { Hdpe2PlasticBottleService } from "../hdpe2PlasticBottle.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  confidenceScore: 42.42,
+  count: 42,
   createdAt: new Date(),
+  detectionTimestamp: new Date(),
   id: "exampleId",
+  typeField: "exampleTypeField",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
+  confidenceScore: 42.42,
+  count: 42,
   createdAt: new Date(),
+  detectionTimestamp: new Date(),
   id: "exampleId",
+  typeField: "exampleTypeField",
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
+    confidenceScore: 42.42,
+    count: 42,
     createdAt: new Date(),
+    detectionTimestamp: new Date(),
     id: "exampleId",
+    typeField: "exampleTypeField",
     updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
+  confidenceScore: 42.42,
+  count: 42,
   createdAt: new Date(),
+  detectionTimestamp: new Date(),
   id: "exampleId",
+  typeField: "exampleTypeField",
   updatedAt: new Date(),
 };
 
@@ -123,6 +139,7 @@ describe("Hdpe2PlasticBottle", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
+        detectionTimestamp: CREATE_RESULT.detectionTimestamp.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
       });
   });
@@ -135,6 +152,8 @@ describe("Hdpe2PlasticBottle", () => {
         {
           ...FIND_MANY_RESULT[0],
           createdAt: FIND_MANY_RESULT[0].createdAt.toISOString(),
+          detectionTimestamp:
+            FIND_MANY_RESULT[0].detectionTimestamp.toISOString(),
           updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
         },
       ]);
@@ -158,6 +177,7 @@ describe("Hdpe2PlasticBottle", () => {
       .expect({
         ...FIND_ONE_RESULT,
         createdAt: FIND_ONE_RESULT.createdAt.toISOString(),
+        detectionTimestamp: FIND_ONE_RESULT.detectionTimestamp.toISOString(),
         updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
       });
   });
@@ -171,6 +191,7 @@ describe("Hdpe2PlasticBottle", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
+        detectionTimestamp: CREATE_RESULT.detectionTimestamp.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
       })
       .then(function () {

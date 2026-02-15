@@ -33,8 +33,12 @@ export class MilkCartonControllerBase {
     return await this.service.createMilkCarton({
       data: data,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -48,8 +52,12 @@ export class MilkCartonControllerBase {
     return this.service.milkCartons({
       ...args,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -64,8 +72,12 @@ export class MilkCartonControllerBase {
     const result = await this.service.milkCarton({
       where: params,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -89,8 +101,12 @@ export class MilkCartonControllerBase {
         where: params,
         data: data,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -114,8 +130,12 @@ export class MilkCartonControllerBase {
       return await this.service.deleteMilkCarton({
         where: params,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });

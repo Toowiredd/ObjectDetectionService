@@ -1,7 +1,7 @@
 import { MilkCarton as TMilkCarton } from "../api/milkCarton/MilkCarton";
 
-export const MILKCARTON_TITLE_FIELD = "id";
+export const MILKCARTON_TITLE_FIELD = "typeField";
 
 export const MilkCartonTitle = (record: TMilkCarton): string => {
-  return record.id?.toString() || String(record.id);
+  return record.typeField?.toString() || String(record.id);
 };

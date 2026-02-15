@@ -8,31 +8,51 @@ generator client {
 }
 
 model AluminiumCan {
-  createdAt DateTime @default(now())
-  id        String   @id @default(cuid())
-  updatedAt DateTime @updatedAt
+  confidenceScore    Float?
+  count              Int?
+  createdAt          DateTime  @default(now())
+  detectionTimestamp DateTime?
+  id                 String    @id @default(cuid())
+  typeField          String?
+  updatedAt          DateTime  @updatedAt
 }
 
 model Hdpe2PlasticBottle {
-  createdAt DateTime @default(now())
-  id        String   @id @default(cuid())
-  updatedAt DateTime @updatedAt
+  confidenceScore    Float?
+  count              Int?
+  createdAt          DateTime  @default(now())
+  detectionTimestamp DateTime?
+  id                 String    @id @default(cuid())
+  typeField          String?
+  updatedAt          DateTime  @updatedAt
 }
 
 model GlassBottle {
-  createdAt DateTime @default(now())
-  id        String   @id @default(cuid())
-  updatedAt DateTime @updatedAt
+  confidenceScore    Float?
+  count              Int?
+  createdAt          DateTime  @default(now())
+  detectionTimestamp DateTime?
+  id                 String    @id @default(cuid())
+  typeField          String?
+  updatedAt          DateTime  @updatedAt
 }
 
 model MilkCarton {
-  createdAt DateTime @default(now())
-  id        String   @id @default(cuid())
-  updatedAt DateTime @updatedAt
+  confidenceScore    Float?
+  count              Int?
+  createdAt          DateTime  @default(now())
+  detectionTimestamp DateTime?
+  id                 String    @id @default(cuid())
+  typeField          String?
+  updatedAt          DateTime  @updatedAt
 }
 
 model Pet1PlasticBottle {
-  createdAt DateTime @default(now())
-  id        String   @id @default(cuid())
-  updatedAt DateTime @updatedAt
+  confidenceScore    Float?
+  count              Int?
+  createdAt          DateTime  @default(now())
+  detectionTimestamp DateTime?
+  id                 String    @id @default(cuid())
+  typeField          String?
+  updatedAt          DateTime  @updatedAt
 }

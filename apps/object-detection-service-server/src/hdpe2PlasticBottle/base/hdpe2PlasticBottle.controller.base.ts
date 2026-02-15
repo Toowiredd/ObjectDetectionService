@@ -33,8 +33,12 @@ export class Hdpe2PlasticBottleControllerBase {
     return await this.service.createHdpe2PlasticBottle({
       data: data,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -50,8 +54,12 @@ export class Hdpe2PlasticBottleControllerBase {
     return this.service.hdpe2PlasticBottles({
       ...args,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -66,8 +74,12 @@ export class Hdpe2PlasticBottleControllerBase {
     const result = await this.service.hdpe2PlasticBottle({
       where: params,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -91,8 +103,12 @@ export class Hdpe2PlasticBottleControllerBase {
         where: params,
         data: data,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -116,8 +132,12 @@ export class Hdpe2PlasticBottleControllerBase {
       return await this.service.deleteHdpe2PlasticBottle({
         where: params,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });

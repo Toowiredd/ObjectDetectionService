@@ -17,6 +17,8 @@ import { Hdpe2PlasticBottle } from "./Hdpe2PlasticBottle";
 import { Hdpe2PlasticBottleCountArgs } from "./Hdpe2PlasticBottleCountArgs";
 import { Hdpe2PlasticBottleFindManyArgs } from "./Hdpe2PlasticBottleFindManyArgs";
 import { Hdpe2PlasticBottleFindUniqueArgs } from "./Hdpe2PlasticBottleFindUniqueArgs";
+import { CreateHdpe2PlasticBottleArgs } from "./CreateHdpe2PlasticBottleArgs";
+import { UpdateHdpe2PlasticBottleArgs } from "./UpdateHdpe2PlasticBottleArgs";
 import { DeleteHdpe2PlasticBottleArgs } from "./DeleteHdpe2PlasticBottleArgs";
 import { Hdpe2PlasticBottleService } from "../hdpe2PlasticBottle.service";
 @graphql.Resolver(() => Hdpe2PlasticBottle)
@@ -48,6 +50,35 @@ export class Hdpe2PlasticBottleResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Mutation(() => Hdpe2PlasticBottle)
+  async createHdpe2PlasticBottle(
+    @graphql.Args() args: CreateHdpe2PlasticBottleArgs
+  ): Promise<Hdpe2PlasticBottle> {
+    return await this.service.createHdpe2PlasticBottle({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @graphql.Mutation(() => Hdpe2PlasticBottle)
+  async updateHdpe2PlasticBottle(
+    @graphql.Args() args: UpdateHdpe2PlasticBottleArgs
+  ): Promise<Hdpe2PlasticBottle | null> {
+    try {
+      return await this.service.updateHdpe2PlasticBottle({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => Hdpe2PlasticBottle)

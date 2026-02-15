@@ -33,8 +33,12 @@ export class Pet1PlasticBottleControllerBase {
     return await this.service.createPet1PlasticBottle({
       data: data,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -50,8 +54,12 @@ export class Pet1PlasticBottleControllerBase {
     return this.service.pet1PlasticBottles({
       ...args,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -66,8 +74,12 @@ export class Pet1PlasticBottleControllerBase {
     const result = await this.service.pet1PlasticBottle({
       where: params,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -91,8 +103,12 @@ export class Pet1PlasticBottleControllerBase {
         where: params,
         data: data,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -116,8 +132,12 @@ export class Pet1PlasticBottleControllerBase {
       return await this.service.deletePet1PlasticBottle({
         where: params,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });

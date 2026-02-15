@@ -17,6 +17,8 @@ import { MilkCarton } from "./MilkCarton";
 import { MilkCartonCountArgs } from "./MilkCartonCountArgs";
 import { MilkCartonFindManyArgs } from "./MilkCartonFindManyArgs";
 import { MilkCartonFindUniqueArgs } from "./MilkCartonFindUniqueArgs";
+import { CreateMilkCartonArgs } from "./CreateMilkCartonArgs";
+import { UpdateMilkCartonArgs } from "./UpdateMilkCartonArgs";
 import { DeleteMilkCartonArgs } from "./DeleteMilkCartonArgs";
 import { MilkCartonService } from "../milkCarton.service";
 @graphql.Resolver(() => MilkCarton)
@@ -48,6 +50,35 @@ export class MilkCartonResolverBase {
       return null;
     }
     return result;
+  }
+
+  @graphql.Mutation(() => MilkCarton)
+  async createMilkCarton(
+    @graphql.Args() args: CreateMilkCartonArgs
+  ): Promise<MilkCarton> {
+    return await this.service.createMilkCarton({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @graphql.Mutation(() => MilkCarton)
+  async updateMilkCarton(
+    @graphql.Args() args: UpdateMilkCartonArgs
+  ): Promise<MilkCarton | null> {
+    try {
+      return await this.service.updateMilkCarton({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
   }
 
   @graphql.Mutation(() => MilkCarton)

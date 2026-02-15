@@ -33,8 +33,12 @@ export class GlassBottleControllerBase {
     return await this.service.createGlassBottle({
       data: data,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -48,8 +52,12 @@ export class GlassBottleControllerBase {
     return this.service.glassBottles({
       ...args,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -64,8 +72,12 @@ export class GlassBottleControllerBase {
     const result = await this.service.glassBottle({
       where: params,
       select: {
+        confidenceScore: true,
+        count: true,
         createdAt: true,
+        detectionTimestamp: true,
         id: true,
+        typeField: true,
         updatedAt: true,
       },
     });
@@ -89,8 +101,12 @@ export class GlassBottleControllerBase {
         where: params,
         data: data,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
@@ -114,8 +130,12 @@ export class GlassBottleControllerBase {
       return await this.service.deleteGlassBottle({
         where: params,
         select: {
+          confidenceScore: true,
+          count: true,
           createdAt: true,
+          detectionTimestamp: true,
           id: true,
+          typeField: true,
           updatedAt: true,
         },
       });
